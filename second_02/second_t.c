@@ -9,15 +9,7 @@
 #include <asm/uaccess.h> //copy_to ...
 #include <asm/io.h>  //ioremap
 
-	/*
-#include <linux/kernel.h>
-#include <linux/fs.h>
-#include <linux/stat.h>
-#include <linux/types.h>
-#include <linux/module.h>
-#include <asm/uaccess.h>
-#include <asm/io.h>
-*/
+
 struct led{
 	char num;
 	char state;
