@@ -1,0 +1,29 @@
+1、#include <linux/fs.h>
+	struct file_operations
+	loff_t (*llseek) (struct file *, loff_t, int); 
+	ssize_t (*read) (struct file *, char __user *, size_t, loff_t *); 
+	ssize_t (*write) (struct file *, const char __user *, size_t, loff_t *); 
+	unsigned int (*poll) (struct file *, struct poll_table_struct *); 
+	int (*ioctl) (struct inode *, struct file *, unsigned int, unsigned long); 
+	int (*open) (struct inode *, struct file *); 
+	int (*release) (struct inode *, struct file *); 
+	int (*fsync) (struct file *, struct dentry *, int datasync); 
+	int (*fasync) (int, struct file *, int); 
+
+2、#include <linux/module.h>
+	MODULE_LICENSE("GPL");
+
+3、#include <linux/kernel.h>
+	printk函数
+
+4、#include<linux/init.h>
+	module_init(forth_init);
+	module_exit(forth_exit);
+
+5、#include <linux/types.h>
+	对一些特殊类型的定义，例如dev_t, off_t, pid_t.其实这些类型大部分都是unsigned int型通过一连串的typedef变过来的，只是为了方便阅读。
+
+6、#include <linux/uaccess.h>
+	copy_to_user（）
+	copy_from_user（）
+	
