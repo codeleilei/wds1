@@ -1,0 +1,1 @@
+测试copy_from_user 能不能用结构体
