@@ -1,3 +1,5 @@
+第一部分：常见头文件
+
 1、#include <linux/fs.h>
 	struct file_operations
 	loff_t (*llseek) (struct file *, loff_t, int); 
@@ -27,3 +29,32 @@
 	copy_to_user（）
 	copy_from_user（）
 	
+第二部分：模块相关头文件
+
+1、中断相关：
+	<linux/interrupt.h>
+		request_irq、free_irq
+	<linux/irq.h>
+	<asm/signal.h>
+2、并发与竞态相关：
+	信号量：
+	<asm/semaphore.h>
+		定义了信号量的操作函数
+	自旋锁：
+	<linux/spinlock.h>
+		定义了自旋锁相关的操作api
+
+	原子操作atomic：
+	<asm/atomic.h>
+
+3、进程处理相关（字符设备高级操作）：
+	<linux/ioctrl.h>
+		ioctrl操作相关api
+	<linux/wait.h>
+		wait_event、wait_up  等休眠相关函数
+	<linux/sched.h>
+		set_current_state、schedule等切换函数
+	<linux/poll.h>
+		poll机制相关函数
+	<asm/signal.h>
+		信号处理相关函数
