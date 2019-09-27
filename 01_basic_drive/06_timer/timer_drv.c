@@ -47,7 +47,7 @@ static irqreturn_t button_handle(int irq, void * dev_id)
 
 	irq_pd = (char)dev_id;
 	/*HZ定义为100 ，代表一秒钟系统中断100次 jiffies又是计入系统中断次数的计数器，所以hz/100代表10ms*/
-	mod_timer(button_timer, jiffies+HZ/100);
+	mod_timer(&button_timer, jiffies+HZ/100);
 	return IRQ_RETVAL(IRQ_HANDLED);
 	
 }
@@ -165,7 +165,7 @@ static struct file_operations timer_fops={
 static int __init timer_init(void)
 {
 	/*init timer*/
-	init_time(&button_timer);
+	init_timer(&button_timer);
 	button_timer.function = timer_handle;
 	add_timer(&button_timer);
 
