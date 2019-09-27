@@ -32,7 +32,7 @@ static struct fasync_struct *button_fasync;
 static volatile int button_flag = 0;
 
 /*初始化时钟的结构体变量*/
-static struct timer_list * button_timer;
+static struct timer_list  button_timer;
 
 volatile signed long *gpfcon;
 volatile signed long *gpfdat;
@@ -165,9 +165,9 @@ static struct file_operations timer_fops={
 static int __init timer_init(void)
 {
 	/*init timer*/
-	init_time(button_timer);
+	init_time(&button_timer);
 	button_timer.function = timer_handle;
-	add_timer(button_timer);
+	add_timer(&button_timer);
 
 
 	
